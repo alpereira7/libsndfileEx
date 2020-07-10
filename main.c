@@ -2,6 +2,12 @@
 #include <stdlib.h>
 #include "sndfile.h"
 
+enum{
+NO_ERROR        = 0,
+FILE_ERROR      = 1,
+POINTER_ERROR   = 2,
+};
+
 int dispFileInfo(SF_INFO* pInFileInfo);
 
 int main(void)
@@ -17,28 +23,34 @@ int main(void)
   if(inFile == NULL)
     {
       printf("ERROR: file doesn't exist.\n");
-      return 1;
+      return FILE_ERROR;
     }
 
   dispFileInfo(&inFileInfo);
 
   sf_close(inFile);
 
-  return 0;
+  return NO_ERROR;
 }
 
 int dispFileInfo(SF_INFO* pInFileInfo)
 {
   int fs;
+  int nbChannels;
 
   if(pInFileInfo == NULL)
   {
     printf("ERROR: SF_INFO pointer.\n");
-    return 1;
+    return POINTER_ERROR;
   }
 
+  // Display Sample Rate
   fs = pInFileInfo->samplerate;
   printf("Sample Rate = %d Hz\n", fs);
 
-  return 0;
+  // Display Number of channels
+  nbChannels = pInFileInfo->channels;
+  printf("Number of Channels = %d\n", nbChannels);
+
+  return NO_ERROR;
 }

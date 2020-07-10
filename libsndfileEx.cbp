@@ -13,10 +13,10 @@
 				<Option compiler="gcc" />
 				<Compiler>
 					<Add option="-g" />
-					<Add directory="C:/Program Files (x86)/Mega-Nerd/libsndfile/include" />
+					<Add directory="C:/Program Files/Mega-Nerd/libsndfile/include" />
 				</Compiler>
 				<Linker>
-					<Add library="C:/Program Files (x86)/Mega-Nerd/libsndfile/lib/libsndfile-1.lib" />
+					<Add library="C:/Program Files/Mega-Nerd/libsndfile/lib/libsndfile-1.lib" />
 				</Linker>
 			</Target>
 			<Target title="Release">
@@ -38,10 +38,6 @@
 		<Unit filename="main.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Extensions>
-			<code_completion />
-			<envvars />
-			<debugger />
-		</Extensions>
+		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
